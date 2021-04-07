@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="js/script.js"></script> -->
+    <title>Three Pictures One Word</title>
+</head>
+
+<body>
+    <a-scene>
+        <a-entity look-controls cursor="rayOrigin: mouse"></a-entity>
+        <a-plane src="https://cdn.aframe.io/a-painter/images/floor.jpg" rotation="-90 0 0" width="30" height="30">
+        </a-plane>
+        <a-sky src="https://cdn.glitch.com/38519790-0188-4a48-91e3-e64cbef34c2e%2Fegypt.jpg?v=1603103841286"></a-sky>
+        <a-box id="board" position="0 0 -5" rotation="0 0 0" scale="10 10 0" color="skyblue"></a-box>
+        <a-text value="Three   Pictures   One   Word" position="-4.3 4 -5" color="black" letter-spacing="10" width="10">
+            <a-text>
+                <a-circle color="red" radius="0.5" position="2 -2 0.005"
+                    event-set__enter="_event: mouseenter; color: pink"
+                    event-set__leave="_event: mouseleave; color: red" onclick="clickfunc1()">
+                    <a-text value="Start" position="-0.37 0 0" color="black" letter-spacing="10" width="5">
+
+                    </a-text>
+                </a-circle>
+                <a-circle color="red" radius="0.5" position="6.5 -2 0.005"
+                    event-set__enter="_event: mouseenter; color: pink"
+                    event-set__leave="_event: mouseleave; color: red" onclick="clickfunc2()" >
+                    <a-text value="Rules" position="-0.37 0 0" color="black" letter-spacing="10" width="5">
+
+                    </a-text>
+                </a-circle>
+                <a-text value="Developed by :- SSD-2" position="5 -3.5 0" color="black" letter-spacing="10" width="5">
+                    <a-text>
+        </a-text>
+    </a-scene>
+</body>
+<script>
+    function clickfunc1()
+    {
+        document.location="game.html";
+    }
+    function clickfunc2()
+    {
+        document.location="rules.html";
+    }
+</script>
+</html>

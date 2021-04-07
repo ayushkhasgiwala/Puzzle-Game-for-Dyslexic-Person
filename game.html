@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Three Pictures One Word</title>
+</head>
+
+<body>
+    <a-scene>
+        <!--Backspace button -->
+        <!-- <a-cylinder color="#ab111e" height="0.2" rotation="45 0 0" radius="0.3" position="0 0.2 0"
+            change-color-on-click="color: #8a0610">
+            <a-cylinder color="#7d7879" height="0.2" radius="0.44" position="0 -0.2 0"></a-cylinder>
+        </a-cylinder> -->
+        <a-plane src="https://cdn.aframe.io/a-painter/images/floor.jpg" rotation="-90 0 0" width="30" height="30">
+        </a-plane>
+        <a-box id="screen_0" position="0 3 -13" rotation="0 0 0" scale="7 4 0" color="#8BDCCF"></a-box>
+        <a-box id="screen_1" position="7 3 -11" rotation="0 120" scale="7 4 0" color="#8BDCCF"></a-box>
+        <a-box id="screen_2" position="-7 3 -11" rotation="0 70" scale="7 4 0" color="#8BDCCF"></a-box>
+        <a-sky src="https://cdn.glitch.com/38519790-0188-4a48-91e3-e64cbef34c2e%2Fegypt.jpg?v=1603103841286"></a-sky>
+
+        <a-box id="output_box_0" width="0.5" depth="0.001" length="0.5" height="0.5" color="grey">
+            <a-text id="output_text_0" position=" -0.2 0 0" color="black" scale="2 2 1"></a-text>
+        </a-box>
+        <a-box id="output_box_1" width="0.5" depth="0.001" length="0.5" height="0.5" color="grey">
+            <a-text id="output_text_1" position=" -0.2 0 0" color="black" scale="2 2 1"></a-text>
+        </a-box>
+        <a-box id="output_box_2" width="0.5" depth="0.001" length="0.5" height="0.5" color="grey">
+            <a-text id="output_text_2" position=" -0.2 0 0" color="black" scale="2 2 1"></a-text>
+        </a-box>
+        <a-box id="output_box_3" width="0.5" depth="0.001" length="0.5" height="0.5" color="grey">
+            <a-text id="output_text_3" position=" -0.2 0 0" color="black" scale="2 2 1"></a-text>
+        </a-box>
+        <a-box id="output_box_4" width="0.5" depth="0.001" length="0.5" height="0.5" color="grey">
+            <a-text id="output_text_4" position=" -0.2 0 0" color="black" scale="2 2 1"></a-text>
+        </a-box>
+        <a-box id="output_box_5" width="0.5" depth="0.001" length="0.5" height="0.5" color="grey">
+            <a-text id="output_text_5" position=" -0.2 0 0" color="black" scale="2 2 1"></a-text>
+        </a-box>
+        <a-box id="output_box_6" width="0.5" depth="0.001" length="0.5" height="0.5" color="grey">
+            <a-text id="output_text_6" position=" -0.2 0 0" color="black" scale="2 2 1"></a-text>
+        </a-box>
+        <a-box id="output_box_7" width="0.5" depth="0.001" length="0.5" height="0.5" color="grey">
+            <a-text id="output_text_7" position=" -0.2 0 0" color="black" scale="2 2 1"></a-text>
+        </a-box>
+        <a-box id="output_box_8" width="0.5" depth="0.001" length="0.5" height="0.5" color="grey">
+            <a-text id="output_text_8" position=" -0.2 0 0" color="black" scale="2 2 1"></a-text>
+        </a-box>
+        <a-box id="output_box_9" width="0.5" depth="0.001" length="0.5" height="0.5" color="grey">
+            <a-text id="output_text_9" position=" -0.2 0 0" color="black" scale="2 2 1"></a-text>
+        </a-box>
+
+        <!--table = Ayush-->
+        <a-box id="box" position="0 1 -1.2" height="0.1" width="2.5" depth="0.5" rotation="20 0 0" color="green" shadow>
+        </a-box>
+
+        <!--grid for letters on table = Ayush-->
+        <a-cylinder id="boxId0" position="-1.05 1.06 -1.25" rotation="20 0 0" height="0.1" radius="0.1" color="blue"
+            onclick_take_input="index:0; color:darkblue">
+            <a-text id="input_text_0" position=" -0.05 0.05 0" color="white" scale=".5 .5 .5" rotation="-90 0 0">
+            </a-text>
+        </a-cylinder>
+        <a-cylinder id="boxId1" position="-0.66 1.06 -1.23" rotation="20 0 0" height="0.1" radius="0.1" color="blue"
+            onclick_take_input="index:1; color:darkblue">
+            <a-text id="input_text_1" position=" -0.05 0.05 0" color="white" scale=".5 .5 .5" rotation="-90 0 0">
+            </a-text>
+        </a-cylinder>
+        <a-cylinder id="boxId2" position="-0.24 1.06 -1.23" rotation="20 0 0" height="0.1" radius="0.1" color="blue"
+            onclick_take_input="index:2; color:darkblue">
+            <a-text id="input_text_2" position=" -0.05 0.05 0" color="white" scale=".5 .5 .5" rotation="-90 0 0">
+            </a-text>
+        </a-cylinder>
+        <a-cylinder id="boxId3" position="0.24 1.06 -1.23" rotation="20 0 0" height="0.1" radius="0.1" color="blue"
+            onclick_take_input="index:3; color:darkblue">
+            <a-text id="input_text_3" position=" -0.05 0.05 0" color="white" scale=".5 .5 .5" rotation="-90 0 0">
+            </a-text>
+        </a-cylinder>
+        <a-cylinder id="boxId4" position="0.66 1.06 -1.23" rotation="20 0 0" height="0.1" radius="0.1" color="blue"
+            onclick_take_input="index:4; color:darkblue">
+            <a-text id="input_text_4" position=" -0.05 0.05 0" color="white" scale=".5 .5 .5" rotation="-90 0 0">
+            </a-text>
+        </a-cylinder>
+        <a-cylinder id="boxId5" position="1.05 1.06 -1.25" rotation="20 0 0" height="0.1" radius="0.1" color="#7d7879">
+            <a-cylinder color="#ab111e" height="0.17" radius="0.06" position="0 0 0"
+                change-color-on-click="color: #8a0610"></a-cylinder>
+        </a-cylinder>
+        <a-cylinder id="boxId6" position="-0.86 0.984 -1.06" rotation="20 0 0" height="0.1" radius="0.1" color="blue"
+            onclick_take_input="index:5; color:darkblue">
+            <a-text id="input_text_5" position=" -0.05 0.05 0" color="white" scale=".5 .5 .5" rotation="-90 0 0">
+            </a-text>
+        </a-cylinder>
+        <a-cylinder id="boxId7" position="-0.46 0.984 -1.06" rotation="20 0 0" height="0.1" radius="0.1" color="blue"
+            onclick_take_input="index:6; color:darkblue">
+            <a-text id="input_text_6" position=" -0.05 0.05 0" color="white" scale=".5 .5 .5" rotation="-90 0 0">
+            </a-text>
+        </a-cylinder>
+        <a-cylinder id="boxId8" position="0 0.984 -1.06" rotation="20 0 0" height="0.1" radius="0.1" color="blue"
+            onclick_take_input="index:7; color:darkblue">
+            <a-text id="input_text_7" position=" -0.05 0.05 0" color="white" scale=".5 .5 .5" rotation="-90 0 0">
+            </a-text>
+        </a-cylinder>
+        <a-cylinder id="boxId9" position="0.46 0.984 -1.06" rotation="20 0 0" height="0.1" radius="0.1" color="blue"
+            onclick_take_input="index:8; color:darkblue">
+            <a-text id="input_text_8" position=" -0.05 0.05 0" color="white" scale=".5 .5 .5" rotation="-90 0 0">
+            </a-text>
+        </a-cylinder>
+        <a-cylinder id="boxId10" position="0.86 0.984 -1.06" rotation="20 0 0" height="0.1" radius="0.1" color="blue"
+            onclick_take_input="index:9; color:darkblue">
+            <a-text id="input_text_9" position=" -0.05 0.05 0" color="white" scale=".5 .5 .5" rotation="-90 0 0">
+            </a-text>
+        </a-cylinder>
+        <!--scoreboard-->
+        <a-box id="scoreboard" position="0 7 -9.5" rotation="0 0 0" scale="4 4 0" color="#726C6C">
+            <a-box position="0 0 0" rotation="0 0 0" scale="1.2 1.2 0" color="#8BA5CA"></a-box>
+            <a-text id="scoreboard_text1" position="-0.33 0.3 1" color="black" scale="1 1 1" value="Score"></a-text>
+            <a-text id="scoreboard_text2" position="-0.1 -0.2 1" color="black" scale="1 1 1"></a-text>
+        </a-box>
+
+        <!--restart button-->
+        <a-entity look-controls cursor="rayOrigin: mouse"></a-entity>
+        <a-box id="restart" position="-5 7 -11" rotation="0 0 0" scale="2.5 2.5 0" color="#8BA5CA"></a-box>
+        <a-circle color="red" position="-5 7 -10.99" radius="1" 
+            event-set__enter="_event: mouseenter; color: pink"
+            event-set__leave="_event: mouseleave; color: red" onclick="restart()">
+                <a-text value="Restart" color="black" letter-spacing="5" width="10" position="-0.9 0 0"></a-text>
+        </a-circle>
+
+        <!--exit button-->
+        <a-box id="exit" position="5 7 -11" rotation="0 0 0" scale="2.5 2.5 0" color="#8BA5CA"></a-box>
+        <a-circle color="red" position="5 7 -10.99" radius="1"
+            event-set__enter="_event: mouseenter; color: pink"
+            event-set__leave="_event: mouseleave; color: red" onclick="leavegame()">
+                <a-text value="Leave\nGame" color="black" letter-spacing="5" width="10" position="-0.7 0 0"></a-text>
+        </a-circle>
+
+        <!--Automatic click on gazing for 3 sec-->
+        <a-camera look-controls wasd-controls cursor="maxDistance: 30; fuse: true">
+            <a-entity position="0 0 -1" geometry="primitive: ring; radiusOuter: 0.025;radiusInner: 0.015;"
+                material="color: black; shader: flat" cursor="maxDistance: 30; fuse: true">
+            </a-entity>
+        </a-camera>
+    </a-scene>
+</body>
+<script>
+    function restart()
+    {
+        document.location="game.html";
+    }
+    function leavegame()
+    {
+        document.location="index.html";
+    }
+</script>
+</html>

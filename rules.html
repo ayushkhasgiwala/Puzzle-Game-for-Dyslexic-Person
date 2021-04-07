@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="js/script.js"></script> -->
+    <title>Three Pictures One Word</title>
+  </head>
+
+  <body>
+    <a-scene>
+      <a-entity look-controls cursor="rayOrigin: mouse"></a-entity>
+      <a-plane
+        src="https://cdn.aframe.io/a-painter/images/floor.jpg"
+        rotation="-90 0 0"
+        width="30"
+        height="30"
+      ></a-plane>
+      <a-sky
+        src="https://cdn.glitch.com/38519790-0188-4a48-91e3-e64cbef34c2e%2Fegypt.jpg?v=1603103841286"
+      ></a-sky>
+      <a-box id="board" position="0 0 -6" rotation="0 0 0" scale="7 14 0" color="#70ACF4"></a-box>
+      <a-text value="RULES" position="-0.4 4 -2.9" width="5" color="black"></a-text>
+      <a-text value="1) To choose a specific letter gaze over the button containing the letter.\n\n " position="-1.4 3.6 -2.9" width="3" color="black"></a-text>
+      <a-text value="2) Gaze over the red button to remove any input letter.\n\n" position="-1.4 3.3 -2.9" width="3" color="black" ></a-text>
+      <a-text value="3) Three images will be displayed in each question and the user needs to fill most simillar word defining all the images.\n\n" position="-1.4 2.9 -2.9" width="3" color="black" ></a-text>
+      <a-text value="4) For each correct answer 4 marks will be awarded and if three continous wrong attempts are performed, the next right attempt would be awarded 2 marks, this scheme would be followed at each level.\n\n" position="-1.4 2.3 -2.9" width="3" color="black" ></a-text>
+      <a-text value="5) This game has 2 levels each consisting 10 questions." position="-1.4 1.8 -2.9" width="3" color="black" ></a-text>
+      <a-text value="HOPE YOU ENJOY" position="-0.9 1.5 -2.9" width="5" color="black">
+        <a-circle color="yellow" radius="0.3" position="0.8 -0.6 -0.9" event-set__enter="_event: mouseenter; color: pink" event-set__leave="_event: mouseleave; color: yellow" onclick="clickfunc3()">
+          <a-text value="Back" position="-0.3 0 0" color="black" letter-spacing="10" width="4"></a-text>
+        </a-circle>
+      </a-text>
+    </a-scene>
+  </body>
+  <script>
+    function clickfunc3()
+    {
+        document.location="index.html";
+    }
+  </script>
+</html>
